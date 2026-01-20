@@ -16,6 +16,7 @@
   justify-content: center;
   transition: all $transition-base;
   z-index: $z-index-dropdown;
+  color: var(--color-text-primary);
 
   &:hover {
     transform: scale(1.1);
@@ -46,6 +47,7 @@
   justify-content: center;
   transition: all $transition-base;
   border-radius: $radius-md;
+  color: var(--color-text-primary);
 
   &:hover {
     transform: none;
