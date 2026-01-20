@@ -1,0 +1,83 @@
+// Login Page Styles
+@use '@/shared/styles/tokens' as *;
+@use '@/shared/styles/mixins' as *;
+
+.container {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: $spacing-md;
+  background: linear-gradient(
+    135deg,
+    $color-primary 0%,
+    $color-primary-dark 100%
+  );
+}
+
+.card {
+  background-color: $color-white;
+  border-radius: $radius-xl;
+  box-shadow: $shadow-xl;
+  padding: $spacing-2xl;
+  width: 100%;
+  max-width: 420px;
+}
+
+.header {
+  text-align: center;
+  margin-bottom: $spacing-xl;
+
+  .title {
+    @include heading-2;
+    color: $color-text-primary;
+    margin-bottom: $spacing-sm;
+  }
+
+  .subtitle {
+    font-size: $font-size-base;
+    color: $color-text-secondary;
+    margin: 0;
+  }
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-lg;
+}
+
+.credentials {
+  margin-top: $spacing-lg;
+  padding: $spacing-md;
+  background-color: $color-bg-secondary;
+  border-radius: $radius-md;
+  border-left: 4px solid $color-info;
+
+  .credentialsTitle {
+    font-size: $font-size-sm;
+    font-weight: $font-weight-semibold;
+    color: $color-text-primary;
+    margin-bottom: $spacing-sm;
+  }
+
+  .credentialsList {
+    font-size: $font-size-sm;
+    color: $color-text-secondary;
+    font-family: $font-family-mono;
+    margin: 0;
+
+    li {
+      margin-bottom: $spacing-xs;
+    }
+  }
+}
+
+.errorMessage {
+  padding: $spacing-md;
+  background-color: rgba($color-danger, 0.1);
+  color: $color-danger;
+  border-radius: $radius-md;
+  font-size: $font-size-sm;
+  text-align: center;
+}
