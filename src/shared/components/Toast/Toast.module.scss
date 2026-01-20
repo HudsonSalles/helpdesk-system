@@ -1,0 +1,101 @@
+// Toast Component
+@use '@/shared/styles/tokens' as *;
+@use '@/shared/styles/mixins' as *;
+
+.container {
+  position: fixed;
+  top: $spacing-lg;
+  right: $spacing-lg;
+  z-index: $z-index-toast;
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-sm;
+  max-width: 400px;
+
+  @media (max-width: $breakpoint-sm) {
+    left: $spacing-md;
+    right: $spacing-md;
+    top: $spacing-md;
+    max-width: none;
+  }
+}
+
+.toast {
+  display: flex;
+  align-items: flex-start;
+  gap: $spacing-sm;
+  padding: $spacing-md;
+  background-color: $color-white;
+  border-left: 4px solid;
+  border-radius: $radius-md;
+  box-shadow: $shadow-lg;
+  animation: slideIn 0.3s ease-out;
+
+  &.type-success {
+    border-left-color: $color-success;
+
+    .icon {
+      color: $color-success;
+    }
+  }
+
+  &.type-error {
+    border-left-color: $color-danger;
+
+    .icon {
+      color: $color-danger;
+    }
+  }
+
+  &.type-warning {
+    border-left-color: $color-warning;
+
+    .icon {
+      color: $color-warning;
+    }
+  }
+
+  &.type-info {
+    border-left-color: $color-info;
+
+    .icon {
+      color: $color-info;
+    }
+  }
+}
+
+.content {
+  flex: 1;
+
+  .message {
+    font-size: $font-size-sm;
+    color: $color-text-primary;
+    line-height: $line-height-normal;
+  }
+}
+
+.closeButton {
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  color: $color-text-tertiary;
+  transition: color $transition-base;
+
+  &:hover {
+    color: $color-text-primary;
+  }
+
+  @include focus-visible;
+}
+
+@keyframes slideIn {
+  from {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}

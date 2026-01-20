@@ -1,0 +1,57 @@
+// Badge Component
+@use '@/shared/styles/tokens' as *;
+@use '@/shared/styles/mixins' as *;
+
+.badge {
+  @include badge;
+
+  &.priority-low {
+    background-color: rgba($color-priority-low, 0.1);
+    color: $color-priority-low;
+  }
+
+  &.priority-medium {
+    background-color: rgba($color-priority-medium, 0.1);
+    color: $color-priority-medium;
+  }
+
+  &.priority-high {
+    background-color: rgba($color-priority-high, 0.1);
+    color: $color-priority-high;
+  }
+
+  &.status-open {
+    background-color: rgba($color-status-open, 0.1);
+    color: $color-status-open;
+  }
+
+  &.status-in_progress {
+    background-color: rgba($color-status-in-progress, 0.1);
+    color: $color-status-in-progress;
+  }
+
+  &.status-resolved {
+    background-color: rgba($color-status-resolved, 0.1);
+    color: $color-status-resolved;
+  }
+
+  &.category-bug {
+    background-color: rgba($color-category-bug, 0.1);
+    color: $color-category-bug;
+  }
+
+  &.category-billing {
+    background-color: rgba($color-category-billing, 0.1);
+    color: $color-category-billing;
+  }
+
+  &.category-feature {
+    background-color: rgba($color-category-feature, 0.1);
+    color: $color-category-feature;
+  }
+
+  &.category-other {
+    background-color: rgba($color-category-other, 0.1);
+    color: $color-category-other;
+  }
+}

@@ -1,0 +1,29 @@
+// Skeleton Component
+@use '@/shared/styles/tokens' as *;
+@use '@/shared/styles/mixins' as *;
+
+.skeleton {
+  @include skeleton;
+  border-radius: $radius-md;
+
+  &.variant-text {
+    height: 1rem;
+    width: 100%;
+  }
+
+  &.variant-title {
+    height: 1.5rem;
+    width: 70%;
+  }
+
+  &.variant-avatar {
+    height: 40px;
+    width: 40px;
+    border-radius: 50%;
+  }
+
+  &.variant-rect {
+    height: 200px;
+    width: 100%;
+  }
+}
