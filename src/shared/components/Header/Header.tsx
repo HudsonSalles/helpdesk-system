@@ -29,7 +29,7 @@ export function Header() {
               src="/logo.png"
               alt="Helpdesk System Logo"
               width={200}
-              height={50}
+              height={55}
               priority
             />
           </Link>

@@ -1,7 +1,6 @@
 // Ticket Detail Page
 'use client';
 
-import { AuthProvider } from '@/features/tickets/components/AuthProvider';
 import { useDeleteTicket } from '@/features/tickets/hooks/useDeleteTicket';
 import { useTicket } from '@/features/tickets/hooks/useTicket';
 import { Badge, Button, Loading, Modal } from '@/shared/components';
@@ -144,10 +143,4 @@ function TicketDetailPage({ params }: { params: Promise<{ id: string }> }) {
   );
 }
 
-export default function Page({ params }: { params: Promise<{ id: string }> }) {
-  return (
-    <AuthProvider>
-      <TicketDetailPage params={params} />
-    </AuthProvider>
-  );
-}
+export default TicketDetailPage;
