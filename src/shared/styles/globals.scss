@@ -1,0 +1,107 @@
+// Global Styles - Helpdesk System
+@use './tokens' as *;
+@use './mixins' as *;
+
+// CSS Reset & Base Styles
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+}
+
+body {
+  font-family: $font-family-base;
+  font-size: $font-size-base;
+  line-height: $line-height-normal;
+  color: $color-text-primary;
+  background-color: $color-bg-secondary;
+  min-height: 100vh;
+}
+
+// Typography
+h1 {
+  @include heading-1;
+  margin-bottom: $spacing-lg;
+}
+
+h2 {
+  @include heading-2;
+  margin-bottom: $spacing-md;
+}
+
+h3 {
+  @include heading-3;
+  margin-bottom: $spacing-md;
+}
+
+p {
+  margin-bottom: $spacing-md;
+}
+
+a {
+  color: $color-primary;
+  text-decoration: none;
+  transition: color $transition-base;
+
+  &:hover {
+    color: $color-primary-dark;
+  }
+
+  @include focus-visible;
+}
+
+// Lists
+ul,
+ol {
+  list-style: none;
+}
+
+// Images
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+// Buttons
+button {
+  font-family: inherit;
+  cursor: pointer;
+}
+
+// Accessibility
+.sr-only {
+  @include sr-only;
+}
+
+// Focus Visible Polyfill
+:focus:not(:focus-visible) {
+  outline: none;
+}
+
+// Scrollbar Styling (Optional)
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: $color-bg-secondary;
+}
+
+::-webkit-scrollbar-thumb {
+  background: $color-gray-400;
+  border-radius: $radius-full;
+
+  &:hover {
+    background: $color-gray-500;
+  }
+}
