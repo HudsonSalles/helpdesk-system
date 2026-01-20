@@ -69,19 +69,29 @@ $color-border-focus: $color-primary;
 
 // Priority Colors
 $color-priority-low: $color-info;
+$color-priority-low-dark: #1d4ed8;
 $color-priority-medium: $color-warning;
+$color-priority-medium-dark: #d97706;
 $color-priority-high: $color-danger;
+$color-priority-high-dark: #dc2626;
 
 // Status Colors
 $color-status-open: $color-info;
+$color-status-open-dark: #1d4ed8;
 $color-status-in-progress: $color-warning;
+$color-status-in-progress-dark: #d97706;
 $color-status-resolved: $color-success;
+$color-status-resolved-dark: #059669;
 
 // Category Colors
 $color-category-bug: $color-danger;
+$color-category-bug-dark: #dc2626;
 $color-category-billing: $color-warning;
+$color-category-billing-dark: #d97706;
 $color-category-feature: $color-success;
+$color-category-feature-dark: #059669;
 $color-category-other: $color-secondary;
+$color-category-other-dark: #334155;
 
 // Spacing
 $spacing-xs: 0.25rem; // 4px
