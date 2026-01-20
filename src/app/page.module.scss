@@ -40,6 +40,11 @@
     align-items: center;
     gap: $spacing-sm;
   }
+
+  img {
+    width: 200px;
+    height: 60px;
+  }
 }
 
 .main {

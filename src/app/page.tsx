@@ -17,6 +17,7 @@ import {
 import { ThemeToggle } from '@/shared/components/ThemeToggle';
 import { useDebounce } from '@/shared/hooks/useDebounce';
 import { formatDate } from '@/shared/utils/formatDate';
+import Image from 'next/image';
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';
 import { useState } from 'react';
@@ -64,7 +65,13 @@ function HomePage() {
     <div className={styles.container}>
       <header className={styles.header}>
         <div className={styles.headerContent}>
-          <h1 className={styles.title}>Sistema de Helpdesk</h1>
+          <Image
+            src="/logo.png"
+            alt="Helpdesk System Logo"
+            width={200}
+            height={60}
+            priority
+          />
           {user && (
             <div className={styles.userSection}>
               <span className={styles.userName}>Olá, {user.name}</span>
