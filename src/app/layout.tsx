@@ -2,7 +2,6 @@
 
 import { ThemeProvider } from '@/features/tickets/components/ThemeProvider';
 import { ToastContainer } from '@/shared/components';
-import { ThemeToggle } from '@/shared/components/ThemeToggle';
 import '@/shared/styles/globals.scss';
 import type { Metadata } from 'next';
 
@@ -42,7 +41,6 @@ export default function RootLayout({
         <ThemeProvider>
           {children}
           <ToastContainer />
-          <ThemeToggle />
         </ThemeProvider>
       </body>
     </html>

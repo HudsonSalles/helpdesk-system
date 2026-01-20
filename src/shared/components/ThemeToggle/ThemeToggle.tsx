@@ -4,7 +4,11 @@ import { useThemeStore } from '@/features/tickets/store/themeStore';
 import { useEffect, useState } from 'react';
 import styles from './ThemeToggle.module.scss';
 
-export function ThemeToggle() {
+interface ThemeToggleProps {
+  variant?: 'floating' | 'inline';
+}
+
+export function ThemeToggle({ variant = 'floating' }: ThemeToggleProps) {
   const { theme, toggleTheme } = useThemeStore();
   const [mounted, setMounted] = useState(false);
 
@@ -14,7 +18,10 @@ export function ThemeToggle() {
 
   if (!mounted) {
     return (
-      <button className={styles.toggle} aria-label="Toggle theme">
+      <button
+        className={styles[`toggle-${variant}`]}
+        aria-label="Toggle theme"
+      >
         <span className={styles.icon}>🌓</span>
       </button>
     );
@@ -23,7 +30,7 @@ export function ThemeToggle() {
   return (
     <button
       onClick={toggleTheme}
-      className={styles.toggle}
+      className={styles[`toggle-${variant}`]}
       aria-label={`Switch to ${theme === 'light' ? 'dark' : 'light'} mode`}
       title={`Switch to ${theme === 'light' ? 'dark' : 'light'} mode`}
     >

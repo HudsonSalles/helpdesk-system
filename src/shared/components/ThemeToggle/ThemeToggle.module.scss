@@ -1,6 +1,6 @@
 @use '../../styles/tokens' as *;
 
-.toggle {
+.toggle-floating {
   position: fixed;
   bottom: $spacing-xl;
   right: $spacing-xl;
@@ -32,6 +32,37 @@
   }
 }
 
+.toggle-inline {
+  position: static;
+  width: auto;
+  height: auto;
+  background-color: transparent;
+  border: none;
+  box-shadow: none;
+  padding: $spacing-xs $spacing-sm;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all $transition-base;
+  border-radius: $radius-md;
+
+  &:hover {
+    transform: none;
+    background-color: var(--color-bg-secondary);
+    box-shadow: none;
+  }
+
+  &:active {
+    transform: scale(0.95);
+  }
+
+  &:focus-visible {
+    outline: 2px solid $color-primary;
+    outline-offset: 2px;
+  }
+}
+
 .icon {
   font-size: $font-size-2xl;
   display: flex;
@@ -39,7 +70,11 @@
   justify-content: center;
   transition: transform $transition-base;
 
-  .toggle:hover & {
+  .toggle-floating:hover & {
     transform: rotate(20deg);
+  }
+
+  .toggle-inline:hover & {
+    transform: scale(1.1);
   }
 }

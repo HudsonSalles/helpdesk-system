@@ -14,6 +14,7 @@ import {
   Select,
   Skeleton,
 } from '@/shared/components';
+import { ThemeToggle } from '@/shared/components/ThemeToggle';
 import { useDebounce } from '@/shared/hooks/useDebounce';
 import { formatDate } from '@/shared/utils/formatDate';
 import Link from 'next/link';
@@ -67,6 +68,9 @@ function HomePage() {
           {user && (
             <div className={styles.userSection}>
               <span className={styles.userName}>Olá, {user.name}</span>
+              <div className={styles.themeToggleHeader}>
+                <ThemeToggle variant="inline" />
+              </div>
               <Button variant="ghost" size="sm" onClick={handleLogout}>
                 Sair
               </Button>
