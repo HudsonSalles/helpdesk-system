@@ -1,6 +1,7 @@
 // Shared Components - Index
 export * from './Badge';
 export * from './Button';
+export * from './Header';
 export * from './Input';
 export * from './Loading';
 export * from './Modal';

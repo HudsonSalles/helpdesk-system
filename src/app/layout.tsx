@@ -1,5 +1,4 @@
 // Root Layout
-
 import { ThemeProvider } from '@/features/tickets/components/ThemeProvider';
 import { ToastContainer } from '@/shared/components';
 import '@/shared/styles/globals.scss';
