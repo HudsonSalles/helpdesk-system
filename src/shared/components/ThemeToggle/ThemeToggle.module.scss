@@ -64,11 +64,18 @@
 }
 
 .icon {
-  font-size: $font-size-2xl;
   display: flex;
   align-items: center;
   justify-content: center;
+  width: 24px;
+  height: 24px;
   transition: transform $transition-base;
+
+  svg {
+    color: currentColor;
+    width: 100%;
+    height: 100%;
+  }
 
   .toggle-floating:hover & {
     transform: rotate(20deg);
