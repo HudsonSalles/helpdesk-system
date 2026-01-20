@@ -42,3 +42,9 @@ Second prompt
 Sent to the Copilot agent to generate and implement the initial project structure and codebase, strictly adhering to the previously defined PRD rules and architectural constraints.
 
 follow the strictely this document prd_helpdesk_system_support.md to create this project, don't create nothing if there isn't in the file, use always the context7 to get the documentation for the best pratices for this project
+
+---
+
+Thirdy prompt
+
+we are now in the develop branch. we will do the changes here, verify if in the git workflow has the parameter that after we create a pr to main and a test to avoid conflicts before merge
