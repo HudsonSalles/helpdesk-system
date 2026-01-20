@@ -138,31 +138,32 @@ function HomePage() {
                       {formatDate(ticket.createdAt)}
                     </span>
                   </div>
-
-                  <div className={styles.ticketFooter}>
-                    <div className={styles.badges}>
-                      <Badge type={ticket.status} variant="status" />
-                      <Badge type={ticket.priority} variant="priority" />
-                      <Badge type={ticket.category} variant="category" />
-                    </div>
-                  </div>
                 </Link>
 
-                <div className={styles.ticketActions}>
-                  <Button
-                    variant="outline"
-                    size="sm"
-                    onClick={() => router.push(`/tickets/${ticket.id}/editar`)}
-                  >
-                    Editar
-                  </Button>
-                  <Button
-                    variant="danger"
-                    size="sm"
-                    onClick={() => handleDeleteClick(ticket.id)}
-                  >
-                    Excluir
-                  </Button>
+                <div className={styles.ticketFooter}>
+                  <div className={styles.badges}>
+                    <Badge type={ticket.status} variant="status" />
+                    <Badge type={ticket.priority} variant="priority" />
+                    <Badge type={ticket.category} variant="category" />
+                  </div>
+                  <div className={styles.ticketActions}>
+                    <Button
+                      variant="outline"
+                      size="sm"
+                      onClick={() =>
+                        router.push(`/tickets/${ticket.id}/editar`)
+                      }
+                    >
+                      Editar
+                    </Button>
+                    <Button
+                      variant="danger"
+                      size="sm"
+                      onClick={() => handleDeleteClick(ticket.id)}
+                    >
+                      Excluir
+                    </Button>
+                  </div>
                 </div>
               </article>
             ))}
