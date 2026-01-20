@@ -25,10 +25,10 @@
   align-items: flex-start;
   gap: $spacing-sm;
   padding: $spacing-md;
-  background-color: $color-white;
+  background-color: var(--color-bg-primary);
   border-left: 4px solid;
   border-radius: $radius-md;
-  box-shadow: $shadow-lg;
+  box-shadow: var(--shadow-lg);
   animation: slideIn 0.3s ease-out;
 
   &.type-success {
@@ -69,7 +69,7 @@
 
   .message {
     font-size: $font-size-sm;
-    color: $color-text-primary;
+    color: var(--color-text-primary);
     line-height: $line-height-normal;
   }
 }
@@ -79,11 +79,11 @@
   border: none;
   padding: 0;
   cursor: pointer;
-  color: $color-text-tertiary;
+  color: var(--color-text-tertiary);
   transition: color $transition-base;
 
   &:hover {
-    color: $color-text-primary;
+    color: var(--color-text-primary);
   }
 
   @include focus-visible;

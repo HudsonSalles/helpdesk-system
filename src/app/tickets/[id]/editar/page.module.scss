@@ -4,22 +4,22 @@
 
 .container {
   min-height: 100vh;
-  background-color: $color-bg-secondary;
+  background-color: var(--color-bg-secondary);
   padding: $spacing-xl $spacing-md;
 }
 
 .formContainer {
   max-width: 700px;
   margin: 0 auto;
-  background-color: $color-white;
+  background-color: var(--color-bg-primary);
   border-radius: $radius-lg;
-  box-shadow: $shadow-md;
+  box-shadow: var(--shadow-md);
   overflow: hidden;
 }
 
 .header {
   padding: $spacing-lg $spacing-xl;
-  border-bottom: 1px solid $color-border-primary;
+  border-bottom: 1px solid var(--color-border-primary);
   display: flex;
   flex-direction: column;
   gap: $spacing-md;
@@ -45,8 +45,8 @@
 
 .disabledInfo {
   padding: $spacing-xl;
-  background-color: $color-bg-secondary;
-  border-bottom: 1px solid $color-border-primary;
+  background-color: var(--color-bg-secondary);
+  border-bottom: 1px solid var(--color-border-primary);
   display: flex;
   flex-direction: column;
   gap: $spacing-md;
@@ -61,14 +61,14 @@
 .infoLabel {
   font-size: $font-size-sm;
   font-weight: $font-weight-medium;
-  color: $color-text-tertiary;
+  color: var(--color-text-tertiary);
   text-transform: uppercase;
   letter-spacing: 0.5px;
 }
 
 .infoValue {
   font-size: $font-size-base;
-  color: $color-text-primary;
+  color: var(--color-text-primary);
 }
 
 .form {

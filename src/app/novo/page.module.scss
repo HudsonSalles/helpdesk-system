@@ -4,22 +4,22 @@
 
 .container {
   min-height: 100vh;
-  background-color: $color-bg-secondary;
+  background-color: var(--color-bg-secondary);
   padding: $spacing-xl $spacing-md;
 }
 
 .formContainer {
   max-width: 700px;
   margin: 0 auto;
-  background-color: $color-white;
+  background-color: var(--color-bg-primary);
   border-radius: $radius-lg;
-  box-shadow: $shadow-md;
+  box-shadow: var(--shadow-md);
   overflow: hidden;
 }
 
 .header {
   padding: $spacing-xl;
-  border-bottom: 1px solid $color-border-primary;
+  border-bottom: 1px solid var(--color-border-primary);
 
   .title {
     @include heading-2;
@@ -44,8 +44,8 @@
   font-size: $font-size-sm;
   font-weight: $font-weight-medium;
   text-align: center;
-  background-color: $color-bg-secondary;
-  color: $color-text-tertiary;
+  background-color: var(--color-bg-secondary);
+  color: var(--color-text-tertiary);
   transition: all $transition-base;
 
   &.active {
@@ -72,5 +72,5 @@
   justify-content: flex-end;
   margin-top: $spacing-md;
   padding-top: $spacing-lg;
-  border-top: 1px solid $color-border-primary;
+  border-top: 1px solid var(--color-border-primary);
 }

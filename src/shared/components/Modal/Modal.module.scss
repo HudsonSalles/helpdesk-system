@@ -24,7 +24,7 @@
 
 .header {
   padding: $spacing-lg;
-  border-bottom: 1px solid $color-border-primary;
+  border-bottom: 1px solid var(--color-border-primary);
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -59,7 +59,7 @@
 
 .footer {
   padding: $spacing-lg;
-  border-top: 1px solid $color-border-primary;
+  border-top: 1px solid var(--color-border-primary);
   display: flex;
   gap: $spacing-md;
   justify-content: flex-end;

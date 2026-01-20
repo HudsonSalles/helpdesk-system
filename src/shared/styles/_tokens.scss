@@ -39,18 +39,30 @@ $color-gray-700: #374151;
 $color-gray-800: #1f2937;
 $color-gray-900: #111827;
 
-// Background Colors
+// Dark Theme Colors
+$color-dark-gray-50: #18181b;
+$color-dark-gray-100: #27272a;
+$color-dark-gray-200: #3f3f46;
+$color-dark-gray-300: #52525b;
+$color-dark-gray-400: #71717a;
+$color-dark-gray-500: #a1a1aa;
+$color-dark-gray-600: #d4d4d8;
+$color-dark-gray-700: #e4e4e7;
+$color-dark-gray-800: #f4f4f5;
+$color-dark-gray-900: #fafafa;
+
+// Background Colors (Light Theme - Default)
 $color-bg-primary: $color-white;
 $color-bg-secondary: $color-gray-50;
 $color-bg-tertiary: $color-gray-100;
 
-// Text Colors
+// Text Colors (Light Theme - Default)
 $color-text-primary: $color-gray-900;
 $color-text-secondary: $color-gray-600;
 $color-text-tertiary: $color-gray-500;
 $color-text-inverse: $color-white;
 
-// Border Colors
+// Border Colors (Light Theme - Default)
 $color-border-primary: $color-gray-200;
 $color-border-secondary: $color-gray-300;
 $color-border-focus: $color-primary;

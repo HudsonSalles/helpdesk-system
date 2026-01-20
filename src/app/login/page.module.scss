@@ -16,9 +16,9 @@
 }
 
 .card {
-  background-color: $color-white;
+  background-color: var(--color-bg-primary);
   border-radius: $radius-xl;
-  box-shadow: $shadow-xl;
+  box-shadow: var(--shadow-xl);
   padding: $spacing-2xl;
   width: 100%;
   max-width: 420px;
@@ -30,13 +30,13 @@
 
   .title {
     @include heading-2;
-    color: $color-text-primary;
+    color: var(--color-text-primary);
     margin-bottom: $spacing-sm;
   }
 
   .subtitle {
     font-size: $font-size-base;
-    color: $color-text-secondary;
+    color: var(--color-text-secondary);
     margin: 0;
   }
 }
@@ -50,20 +50,20 @@
 .credentials {
   margin-top: $spacing-lg;
   padding: $spacing-md;
-  background-color: $color-bg-secondary;
+  background-color: var(--color-bg-secondary);
   border-radius: $radius-md;
   border-left: 4px solid $color-info;
 
   .credentialsTitle {
     font-size: $font-size-sm;
     font-weight: $font-weight-semibold;
-    color: $color-text-primary;
+    color: var(--color-text-primary);
     margin-bottom: $spacing-sm;
   }
 
   .credentialsList {
     font-size: $font-size-sm;
-    color: $color-text-secondary;
+    color: var(--color-text-secondary);
     font-family: $font-family-mono;
     margin: 0;
 

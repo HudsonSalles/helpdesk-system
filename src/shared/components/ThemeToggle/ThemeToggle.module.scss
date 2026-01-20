@@ -1,0 +1,45 @@
+@use '../../styles/tokens' as *;
+
+.toggle {
+  position: fixed;
+  bottom: $spacing-xl;
+  right: $spacing-xl;
+  width: 3.5rem;
+  height: 3.5rem;
+  border-radius: $radius-full;
+  background-color: var(--color-bg-primary);
+  border: 2px solid var(--color-border-primary);
+  box-shadow: var(--shadow-lg);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all $transition-base;
+  z-index: $z-index-dropdown;
+
+  &:hover {
+    transform: scale(1.1);
+    box-shadow: var(--shadow-xl);
+  }
+
+  &:active {
+    transform: scale(0.95);
+  }
+
+  &:focus-visible {
+    outline: 2px solid $color-primary;
+    outline-offset: 2px;
+  }
+}
+
+.icon {
+  font-size: $font-size-2xl;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform $transition-base;
+
+  .toggle:hover & {
+    transform: rotate(20deg);
+  }
+}

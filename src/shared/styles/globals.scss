@@ -2,6 +2,45 @@
 @use './tokens' as *;
 @use './mixins' as *;
 
+// CSS Custom Properties for Theme
+:root {
+  // Light Theme (Default)
+  --color-bg-primary: #{$color-white};
+  --color-bg-secondary: #{$color-gray-50};
+  --color-bg-tertiary: #{$color-gray-100};
+  --color-text-primary: #{$color-gray-900};
+  --color-text-secondary: #{$color-gray-600};
+  --color-text-tertiary: #{$color-gray-500};
+  --color-border-primary: #{$color-gray-200};
+  --color-border-secondary: #{$color-gray-300};
+  --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+  --shadow-md:
+    0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  --shadow-lg:
+    0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+  --shadow-xl:
+    0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+}
+
+[data-theme='dark'] {
+  // Dark Theme
+  --color-bg-primary: #{$color-dark-gray-50};
+  --color-bg-secondary: #{$color-dark-gray-100};
+  --color-bg-tertiary: #{$color-dark-gray-200};
+  --color-text-primary: #{$color-dark-gray-900};
+  --color-text-secondary: #{$color-dark-gray-600};
+  --color-text-tertiary: #{$color-dark-gray-500};
+  --color-border-primary: #{$color-dark-gray-200};
+  --color-border-secondary: #{$color-dark-gray-300};
+  --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.3);
+  --shadow-md:
+    0 4px 6px -1px rgba(0, 0, 0, 0.4), 0 2px 4px -1px rgba(0, 0, 0, 0.3);
+  --shadow-lg:
+    0 10px 15px -3px rgba(0, 0, 0, 0.4), 0 4px 6px -2px rgba(0, 0, 0, 0.3);
+  --shadow-xl:
+    0 20px 25px -5px rgba(0, 0, 0, 0.5), 0 10px 10px -5px rgba(0, 0, 0, 0.3);
+}
+
 // CSS Reset & Base Styles
 *,
 *::before,
@@ -21,9 +60,12 @@ body {
   font-family: $font-family-base;
   font-size: $font-size-base;
   line-height: $line-height-normal;
-  color: $color-text-primary;
-  background-color: $color-bg-secondary;
+  color: var(--color-text-primary);
+  background-color: var(--color-bg-secondary);
   min-height: 100vh;
+  transition:
+    background-color $transition-base,
+    color $transition-base;
 }
 
 // Typography
