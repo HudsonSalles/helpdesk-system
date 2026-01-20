@@ -12,14 +12,15 @@
 }
 
 .modal {
-  background-color: $color-white;
+  background-color: var(--color-bg-primary);
   border-radius: $radius-lg;
-  box-shadow: $shadow-xl;
+  box-shadow: var(--shadow-xl);
   max-width: 500px;
   width: 100%;
   max-height: 90vh;
   overflow-y: auto;
   animation: slideUp 0.3s ease-out;
+  color: var(--color-text-primary);
 }
 
 .header {
@@ -41,13 +42,13 @@
   border: none;
   padding: $spacing-xs;
   cursor: pointer;
-  color: $color-text-tertiary;
+  color: var(--color-text-tertiary);
   font-size: $font-size-xl;
   line-height: 1;
   transition: color $transition-base;
 
   &:hover {
-    color: $color-text-primary;
+    color: var(--color-text-primary);
   }
 
   @include focus-visible;

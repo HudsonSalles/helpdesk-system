@@ -62,6 +62,6 @@
 
 .helperText {
   font-size: $font-size-sm;
-  color: $color-text-tertiary;
+  color: var(--color-text-tertiary);
   margin-top: $spacing-xs;
 }
