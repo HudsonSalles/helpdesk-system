@@ -1,0 +1,105 @@
+// Edit Ticket Page Styles
+@use '@/shared/styles/tokens' as *;
+@use '@/shared/styles/mixins' as *;
+
+.container {
+  min-height: 100vh;
+  background-color: $color-bg-secondary;
+  padding: $spacing-xl $spacing-md;
+}
+
+.formContainer {
+  max-width: 700px;
+  margin: 0 auto;
+  background-color: $color-white;
+  border-radius: $radius-lg;
+  box-shadow: $shadow-md;
+  overflow: hidden;
+}
+
+.header {
+  padding: $spacing-lg $spacing-xl;
+  border-bottom: 1px solid $color-border-primary;
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-md;
+}
+
+.backLink {
+  color: $color-primary;
+  text-decoration: none;
+  font-weight: $font-weight-medium;
+  transition: color $transition-base;
+
+  &:hover {
+    color: $color-primary-dark;
+  }
+
+  @include focus-visible;
+}
+
+.title {
+  @include heading-2;
+  margin: 0;
+}
+
+.disabledInfo {
+  padding: $spacing-xl;
+  background-color: $color-bg-secondary;
+  border-bottom: 1px solid $color-border-primary;
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-md;
+}
+
+.infoItem {
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-xs;
+}
+
+.infoLabel {
+  font-size: $font-size-sm;
+  font-weight: $font-weight-medium;
+  color: $color-text-tertiary;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.infoValue {
+  font-size: $font-size-base;
+  color: $color-text-primary;
+}
+
+.form {
+  padding: $spacing-xl;
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-lg;
+}
+
+.formActions {
+  display: flex;
+  gap: $spacing-md;
+  justify-content: flex-end;
+  margin-top: $spacing-md;
+  padding-top: $spacing-lg;
+  border-top: 1px solid $color-border-primary;
+}
+
+.errorState {
+  max-width: 500px;
+  margin: $spacing-3xl auto;
+  text-align: center;
+
+  h1 {
+    @include heading-2;
+    color: $color-danger;
+    margin-bottom: $spacing-md;
+  }
+
+  p {
+    color: $color-text-secondary;
+    margin-bottom: $spacing-xl;
+  }
+}

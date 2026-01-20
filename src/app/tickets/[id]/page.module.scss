@@ -1,0 +1,152 @@
+// Ticket Detail Page Styles
+@use '@/shared/styles/tokens' as *;
+@use '@/shared/styles/mixins' as *;
+
+.container {
+  min-height: 100vh;
+  background-color: $color-bg-secondary;
+  padding: $spacing-xl $spacing-md;
+}
+
+.detailContainer {
+  max-width: 900px;
+  margin: 0 auto;
+  background-color: $color-white;
+  border-radius: $radius-lg;
+  box-shadow: $shadow-md;
+  overflow: hidden;
+}
+
+.header {
+  padding: $spacing-lg $spacing-xl;
+  border-bottom: 1px solid $color-border-primary;
+  @include flex-between;
+  gap: $spacing-md;
+  flex-wrap: wrap;
+}
+
+.backLink {
+  color: $color-primary;
+  text-decoration: none;
+  font-weight: $font-weight-medium;
+  transition: color $transition-base;
+
+  &:hover {
+    color: $color-primary-dark;
+  }
+
+  @include focus-visible;
+}
+
+.actions {
+  display: flex;
+  gap: $spacing-sm;
+}
+
+.content {
+  padding: $spacing-xl;
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-xl;
+}
+
+.titleSection {
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-md;
+}
+
+.title {
+  @include heading-1;
+  margin: 0;
+  color: $color-text-primary;
+}
+
+.badges {
+  display: flex;
+  flex-wrap: wrap;
+  gap: $spacing-xs;
+}
+
+.infoGrid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: $spacing-md;
+  padding: $spacing-lg;
+  background-color: $color-bg-secondary;
+  border-radius: $radius-md;
+
+  @include md {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+.infoItem {
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-xs;
+}
+
+.infoLabel {
+  font-size: $font-size-sm;
+  font-weight: $font-weight-medium;
+  color: $color-text-tertiary;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.infoValue {
+  font-size: $font-size-base;
+  color: $color-text-primary;
+}
+
+.attachmentLink {
+  color: $color-primary;
+  text-decoration: none;
+  font-weight: $font-weight-medium;
+  transition: color $transition-base;
+
+  &:hover {
+    color: $color-primary-dark;
+    text-decoration: underline;
+  }
+
+  @include focus-visible;
+}
+
+.descriptionSection {
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-md;
+}
+
+.sectionTitle {
+  @include heading-3;
+  margin: 0;
+  color: $color-text-primary;
+}
+
+.description {
+  font-size: $font-size-base;
+  line-height: $line-height-relaxed;
+  color: $color-text-secondary;
+  white-space: pre-wrap;
+  margin: 0;
+}
+
+.errorState {
+  max-width: 500px;
+  margin: $spacing-3xl auto;
+  text-align: center;
+
+  h1 {
+    @include heading-2;
+    color: $color-danger;
+    margin-bottom: $spacing-md;
+  }
+
+  p {
+    color: $color-text-secondary;
+    margin-bottom: $spacing-xl;
+  }
+}
