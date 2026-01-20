@@ -1,0 +1,76 @@
+// Create Ticket Page Styles
+@use '@/shared/styles/tokens' as *;
+@use '@/shared/styles/mixins' as *;
+
+.container {
+  min-height: 100vh;
+  background-color: $color-bg-secondary;
+  padding: $spacing-xl $spacing-md;
+}
+
+.formContainer {
+  max-width: 700px;
+  margin: 0 auto;
+  background-color: $color-white;
+  border-radius: $radius-lg;
+  box-shadow: $shadow-md;
+  overflow: hidden;
+}
+
+.header {
+  padding: $spacing-xl;
+  border-bottom: 1px solid $color-border-primary;
+
+  .title {
+    @include heading-2;
+    margin: 0 0 $spacing-lg 0;
+  }
+}
+
+.steps {
+  display: flex;
+  gap: $spacing-md;
+
+  @media (max-width: $breakpoint-sm) {
+    flex-direction: column;
+    gap: $spacing-sm;
+  }
+}
+
+.stepIndicator {
+  flex: 1;
+  padding: $spacing-sm $spacing-md;
+  border-radius: $radius-md;
+  font-size: $font-size-sm;
+  font-weight: $font-weight-medium;
+  text-align: center;
+  background-color: $color-bg-secondary;
+  color: $color-text-tertiary;
+  transition: all $transition-base;
+
+  &.active {
+    background-color: $color-primary;
+    color: $color-white;
+  }
+
+  &.completed {
+    background-color: $color-success;
+    color: $color-white;
+  }
+}
+
+.form {
+  padding: $spacing-xl;
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-lg;
+}
+
+.formActions {
+  display: flex;
+  gap: $spacing-md;
+  justify-content: flex-end;
+  margin-top: $spacing-md;
+  padding-top: $spacing-lg;
+  border-top: 1px solid $color-border-primary;
+}
