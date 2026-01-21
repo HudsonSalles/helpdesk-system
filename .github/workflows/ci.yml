@@ -84,11 +84,15 @@ jobs:
           git fetch origin ${{ github.base_ref }}
           if git merge --no-commit --no-ff origin/${{ github.base_ref }} > /dev/null 2>&1; then
             echo "✅ No merge conflicts detected"
-            git merge --abort
+            if [ -f .git/MERGE_HEAD ]; then
+              git merge --abort
+            else
+              echo "No merge in progress to abort (already up to date)."
+            fi
           else
             echo "❌ Merge conflicts detected!"
             echo "Please resolve conflicts before merging:"
-            git merge --abort
+            git merge --abort || true
             exit 1
           fi
 
