@@ -7,7 +7,15 @@ import { useTicketStore } from '../store/ticketStore';
 import { useToastStore } from '../store/toastStore';
 import type { TicketFilters } from '../types/ticket';
 
-export const useTickets = (filters?: TicketFilters) => {
+export interface PaginationOptions {
+  page?: number;
+  limit?: number;
+}
+
+export const useTickets = (
+  filters?: TicketFilters,
+  pagination?: PaginationOptions
+) => {
   const { tickets, isLoading, error, setTickets, setLoading, setError } =
     useTicketStore();
   const { addToast } = useToastStore();
@@ -17,7 +25,12 @@ export const useTickets = (filters?: TicketFilters) => {
     setError(null);
 
     try {
-      const data = await TicketService.getAllTickets(filters);
+      const params = {
+        ...filters,
+        page: pagination?.page || 1,
+        limit: pagination?.limit || 10,
+      };
+      const data = await TicketService.getAllTickets(params);
       setTickets(data);
     } catch (err) {
       const errorMessage =
@@ -36,7 +49,7 @@ export const useTickets = (filters?: TicketFilters) => {
   useEffect(() => {
     fetchTickets();
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [filters?.status, filters?.search]);
+  }, [filters?.status, filters?.search, pagination?.page]);
 
   return {
     tickets,

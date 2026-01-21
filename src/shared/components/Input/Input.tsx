@@ -1,5 +1,5 @@
 // Input Component
-import React, { forwardRef } from 'react';
+import React, { forwardRef, useId } from 'react';
 import styles from './Input.module.scss';
 
 export interface InputProps extends React.InputHTMLAttributes<HTMLInputElement> {
@@ -14,7 +14,8 @@ export const Input = forwardRef<HTMLInputElement, InputProps>(
     { label, error, helperText, required, className = '', id, ...props },
     ref
   ) => {
-    const inputId = id || `input-${Math.random().toString(36).substring(7)}`;
+    const reactId = useId();
+    const inputId = id || `input-${reactId}`;
     const hasError = Boolean(error);
 
     return (

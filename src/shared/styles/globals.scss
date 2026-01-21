@@ -9,10 +9,32 @@
   --color-bg-secondary: #{$color-gray-50};
   --color-bg-tertiary: #{$color-gray-100};
   --color-text-primary: #{$color-gray-900};
-  --color-text-secondary: #{$color-gray-600};
-  --color-text-tertiary: #{$color-gray-500};
+  --color-text-secondary: #{$color-gray-700};
+  --color-text-tertiary: #{$color-gray-700};
   --color-border-primary: #{$color-gray-200};
   --color-border-secondary: #{$color-gray-300};
+
+  // Badge Colors (Light Theme)
+  --badge-priority-low-bg: rgba(59, 130, 246, 0.2);
+  --badge-priority-low-text: #1d4ed8;
+  --badge-priority-medium-bg: rgba(245, 158, 11, 0.18);
+  --badge-priority-medium-text: #92400e;
+  --badge-priority-high-bg: rgba(239, 68, 68, 0.2);
+  --badge-priority-high-text: #b91c1c;
+  --badge-status-open-bg: rgba(59, 130, 246, 0.2);
+  --badge-status-open-text: #1d4ed8;
+  --badge-status-in-progress-bg: rgba(245, 158, 11, 0.18);
+  --badge-status-in-progress-text: #92400e;
+  --badge-status-resolved-bg: rgba(16, 185, 129, 0.2);
+  --badge-status-resolved-text: #047857;
+  --badge-category-bug-bg: rgba(239, 68, 68, 0.2);
+  --badge-category-bug-text: #b91c1c;
+  --badge-category-billing-bg: rgba(245, 158, 11, 0.18);
+  --badge-category-billing-text: #92400e;
+  --badge-category-feature-bg: rgba(16, 185, 129, 0.2);
+  --badge-category-feature-text: #047857;
+  --badge-category-other-bg: rgba(100, 116, 139, 0.2);
+  --badge-category-other-text: #334155;
   --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
   --shadow-md:
     0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
@@ -27,11 +49,33 @@
   --color-bg-primary: #{$color-dark-gray-50};
   --color-bg-secondary: #{$color-dark-gray-100};
   --color-bg-tertiary: #{$color-dark-gray-200};
-  --color-text-primary: #{$color-dark-gray-900};
-  --color-text-secondary: #{$color-dark-gray-600};
-  --color-text-tertiary: #{$color-dark-gray-500};
-  --color-border-primary: #{$color-dark-gray-200};
-  --color-border-secondary: #{$color-dark-gray-300};
+  --color-text-primary: #ffffff;
+  --color-text-secondary: #{$color-dark-gray-700};
+  --color-text-tertiary: #{$color-dark-gray-600};
+  --color-border-primary: #{$color-dark-gray-300};
+  --color-border-secondary: #{$color-dark-gray-400};
+
+  // Badge Colors (Dark Theme)
+  --badge-priority-low-bg: rgba(96, 165, 250, 0.25);
+  --badge-priority-low-text: #93c5fd;
+  --badge-priority-medium-bg: rgba(251, 191, 36, 0.25);
+  --badge-priority-medium-text: #fbbf24;
+  --badge-priority-high-bg: rgba(248, 113, 113, 0.25);
+  --badge-priority-high-text: #fca5a5;
+  --badge-status-open-bg: rgba(96, 165, 250, 0.25);
+  --badge-status-open-text: #93c5fd;
+  --badge-status-in-progress-bg: rgba(251, 191, 36, 0.25);
+  --badge-status-in-progress-text: #fbbf24;
+  --badge-status-resolved-bg: rgba(52, 211, 153, 0.25);
+  --badge-status-resolved-text: #6ee7b7;
+  --badge-category-bug-bg: rgba(248, 113, 113, 0.25);
+  --badge-category-bug-text: #fca5a5;
+  --badge-category-billing-bg: rgba(251, 191, 36, 0.25);
+  --badge-category-billing-text: #fbbf24;
+  --badge-category-feature-bg: rgba(52, 211, 153, 0.25);
+  --badge-category-feature-text: #6ee7b7;
+  --badge-category-other-bg: rgba(148, 163, 184, 0.25);
+  --badge-category-other-text: #cbd5e1;
   --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.3);
   --shadow-md:
     0 4px 6px -1px rgba(0, 0, 0, 0.4), 0 2px 4px -1px rgba(0, 0, 0, 0.3);

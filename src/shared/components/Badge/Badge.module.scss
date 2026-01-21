@@ -6,52 +6,52 @@
   @include badge;
 
   &.priority-low {
-    background-color: rgba($color-priority-low, 0.1);
-    color: $color-priority-low;
+    background-color: var(--badge-priority-low-bg);
+    color: var(--badge-priority-low-text);
   }
 
   &.priority-medium {
-    background-color: rgba($color-priority-medium, 0.1);
-    color: $color-priority-medium;
+    background-color: var(--badge-priority-medium-bg);
+    color: var(--badge-priority-medium-text);
   }
 
   &.priority-high {
-    background-color: rgba($color-priority-high, 0.1);
-    color: $color-priority-high;
+    background-color: var(--badge-priority-high-bg);
+    color: var(--badge-priority-high-text);
   }
 
   &.status-open {
-    background-color: rgba($color-status-open, 0.1);
-    color: $color-status-open;
+    background-color: var(--badge-status-open-bg);
+    color: var(--badge-status-open-text);
   }
 
   &.status-in_progress {
-    background-color: rgba($color-status-in-progress, 0.1);
-    color: $color-status-in-progress;
+    background-color: var(--badge-status-in-progress-bg);
+    color: var(--badge-status-in-progress-text);
   }
 
   &.status-resolved {
-    background-color: rgba($color-status-resolved, 0.1);
-    color: $color-status-resolved;
+    background-color: var(--badge-status-resolved-bg);
+    color: var(--badge-status-resolved-text);
   }
 
   &.category-bug {
-    background-color: rgba($color-category-bug, 0.1);
-    color: $color-category-bug;
+    background-color: var(--badge-category-bug-bg);
+    color: var(--badge-category-bug-text);
   }
 
   &.category-billing {
-    background-color: rgba($color-category-billing, 0.1);
-    color: $color-category-billing;
+    background-color: var(--badge-category-billing-bg);
+    color: var(--badge-category-billing-text);
   }
 
   &.category-feature {
-    background-color: rgba($color-category-feature, 0.1);
-    color: $color-category-feature;
+    background-color: var(--badge-category-feature-bg);
+    color: var(--badge-category-feature-text);
   }
 
   &.category-other {
-    background-color: rgba($color-category-other, 0.1);
-    color: $color-category-other;
+    background-color: var(--badge-category-other-bg);
+    color: var(--badge-category-other-text);
   }
 }

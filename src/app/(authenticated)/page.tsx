@@ -1,10 +1,8 @@
 // Home Page - Ticket Listing
 'use client';
 
-import { AuthProvider } from '@/features/tickets/components/AuthProvider';
 import { useDeleteTicket } from '@/features/tickets/hooks/useDeleteTicket';
 import { useTickets } from '@/features/tickets/hooks/useTickets';
-import { useAuthStore } from '@/features/tickets/store/authStore';
 import type { TicketStatus } from '@/features/tickets/types/ticket';
 import {
   Badge,
@@ -14,7 +12,6 @@ import {
   Select,
   Skeleton,
 } from '@/shared/components';
-import { ThemeToggle } from '@/shared/components/ThemeToggle';
 import { useDebounce } from '@/shared/hooks/useDebounce';
 import { formatDate } from '@/shared/utils/formatDate';
 import Link from 'next/link';
@@ -24,23 +21,22 @@ import styles from './page.module.scss';
 
 function HomePage() {
   const router = useRouter();
-  const { user, logout } = useAuthStore();
   const [search, setSearch] = useState('');
   const [statusFilter, setStatusFilter] = useState<TicketStatus | ''>('');
   const [deleteModalOpen, setDeleteModalOpen] = useState(false);
   const [ticketToDelete, setTicketToDelete] = useState<string | null>(null);
+  const [currentPage, setCurrentPage] = useState(1);
+  const itemsPerPage = 10;
 
   const debouncedSearch = useDebounce(search, 500);
-  const { tickets, isLoading, error } = useTickets({
-    status: statusFilter || undefined,
-    search: debouncedSearch || undefined,
-  });
+  const { tickets, isLoading, error } = useTickets(
+    {
+      status: statusFilter || undefined,
+      search: debouncedSearch || undefined,
+    },
+    { page: currentPage, limit: itemsPerPage }
+  );
   const { deleteTicket, isDeleting } = useDeleteTicket();
-
-  const handleLogout = () => {
-    logout();
-    router.push('/login');
-  };
 
   const handleDeleteClick = (id: string) => {
     setTicketToDelete(id);
@@ -62,23 +58,6 @@ function HomePage() {
 
   return (
     <div className={styles.container}>
-      <header className={styles.header}>
-        <div className={styles.headerContent}>
-          <h1 className={styles.title}>Sistema de Helpdesk</h1>
-          {user && (
-            <div className={styles.userSection}>
-              <span className={styles.userName}>Olá, {user.name}</span>
-              <div className={styles.themeToggleHeader}>
-                <ThemeToggle variant="inline" />
-              </div>
-              <Button variant="ghost" size="sm" onClick={handleLogout}>
-                Sair
-              </Button>
-            </div>
-          )}
-        </div>
-      </header>
-
       <main className={styles.main}>
         <div className={styles.actions}>
           <Link href="/novo">
@@ -143,27 +122,29 @@ function HomePage() {
             )}
           </div>
         ) : (
-          <div className={styles.ticketGrid}>
-            {tickets.map((ticket) => (
-              <article key={ticket.id} className={styles.ticketCard}>
-                <Link
-                  href={`/tickets/${ticket.id}`}
-                  className={styles.ticketLink}
-                >
-                  <div className={styles.ticketHeader}>
-                    <h2 className={styles.ticketTitle}>{ticket.title}</h2>
-                  </div>
+          <>
+            <div className={styles.ticketGrid}>
+              {tickets.map((ticket) => (
+                <article key={ticket.id} className={styles.ticketCard}>
+                  <Link
+                    href={`/tickets/${ticket.id}`}
+                    className={styles.ticketLink}
+                  >
+                    <div className={styles.ticketHeader}>
+                      <h2 className={styles.ticketTitle}>{ticket.title}</h2>
+                    </div>
 
-                  <p className={styles.ticketDescription}>
-                    {ticket.description}
-                  </p>
+                    <p className={styles.ticketDescription}>
+                      {ticket.description}
+                    </p>
 
-                  <div className={styles.ticketMeta}>
-                    <span className={styles.ticketEmail}>{ticket.email}</span>
-                    <span className={styles.ticketDate}>
-                      {formatDate(ticket.createdAt)}
-                    </span>
-                  </div>
+                    <div className={styles.ticketMeta}>
+                      <span className={styles.ticketEmail}>{ticket.email}</span>
+                      <span className={styles.ticketDate}>
+                        {formatDate(ticket.createdAt)}
+                      </span>
+                    </div>
+                  </Link>
 
                   <div className={styles.ticketFooter}>
                     <div className={styles.badges}>
@@ -171,28 +152,50 @@ function HomePage() {
                       <Badge type={ticket.priority} variant="priority" />
                       <Badge type={ticket.category} variant="category" />
                     </div>
+                    <div className={styles.ticketActions}>
+                      <Button
+                        variant="outline"
+                        size="sm"
+                        onClick={() =>
+                          router.push(`/tickets/${ticket.id}/editar`)
+                        }
+                      >
+                        Editar
+                      </Button>
+                      <Button
+                        variant="danger"
+                        size="sm"
+                        onClick={() => handleDeleteClick(ticket.id)}
+                      >
+                        Excluir
+                      </Button>
+                    </div>
                   </div>
-                </Link>
+                </article>
+              ))}
+            </div>
 
-                <div className={styles.ticketActions}>
-                  <Button
-                    variant="outline"
-                    size="sm"
-                    onClick={() => router.push(`/tickets/${ticket.id}/editar`)}
-                  >
-                    Editar
-                  </Button>
-                  <Button
-                    variant="danger"
-                    size="sm"
-                    onClick={() => handleDeleteClick(ticket.id)}
-                  >
-                    Excluir
-                  </Button>
-                </div>
-              </article>
-            ))}
-          </div>
+            {/* Pagination */}
+            <div className={styles.pagination}>
+              <Button
+                variant="outline"
+                size="sm"
+                onClick={() => setCurrentPage((p) => Math.max(1, p - 1))}
+                disabled={currentPage === 1 || isLoading}
+              >
+                ← Anterior
+              </Button>
+              <span className={styles.pageInfo}>Página {currentPage}</span>
+              <Button
+                variant="outline"
+                size="sm"
+                onClick={() => setCurrentPage((p) => p + 1)}
+                disabled={tickets.length < itemsPerPage || isLoading}
+              >
+                Próxima →
+              </Button>
+            </div>
+          </>
         )}
       </main>
 
@@ -228,10 +231,4 @@ function HomePage() {
   );
 }
 
-export default function Page() {
-  return (
-    <AuthProvider>
-      <HomePage />
-    </AuthProvider>
-  );
-}
+export default HomePage;

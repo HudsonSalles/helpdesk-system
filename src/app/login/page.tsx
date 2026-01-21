@@ -9,6 +9,7 @@ import {
 import { Button } from '@/shared/components/Button';
 import { Input } from '@/shared/components/Input';
 import { zodResolver } from '@hookform/resolvers/zod';
+import Image from 'next/image';
 import { useRouter } from 'next/navigation';
 import { useEffect, useState } from 'react';
 import { useForm } from 'react-hook-form';
@@ -48,7 +49,13 @@ export default function LoginPage() {
     <div className={styles.container}>
       <div className={styles.card}>
         <div className={styles.header}>
-          <h1 className={styles.title}>Sistema de Helpdesk</h1>
+          <Image
+            src="/logo.png"
+            alt="Helpdesk System Logo"
+            width={300}
+            height={85}
+            priority
+          />
           <p className={styles.subtitle}>Faça login para acessar</p>
         </div>
 

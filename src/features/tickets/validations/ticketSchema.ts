@@ -91,15 +91,6 @@ export const ticketFormSchema = z
         path: ['description'],
       });
     }
-
-    // Conditional: Bug → title must start with [BUG]
-    if (data.category === 'bug' && !data.title.startsWith('[BUG]')) {
-      ctx.addIssue({
-        code: z.ZodIssueCode.custom,
-        message: 'Para categoria "Bug", o título deve começar com "[BUG]"',
-        path: ['title'],
-      });
-    }
   });
 
 export type TicketFormData = z.infer<typeof ticketFormSchema>;
