@@ -13,6 +13,7 @@ Este projeto demonstra proficiência em React, Next.js (App Router), TypeScript 
 - **Estilização**: SCSS Modules (mobile-first)
 - **Gerenciamento de Estado**: Zustand
 - **Formulários & Validação**: React Hook Form + Zod
+- **Testes**: Vitest + Testing Library
 - **Linting & Formatação**: ESLint + Prettier
 - **Backend**: Mock API com Next.js Route Handlers (dados em memória)
 
@@ -23,17 +24,37 @@ Este projeto demonstra proficiência em React, Next.js (App Router), TypeScript 
 ```
 src/
 ├── app/                    # Next.js App Router
+│   ├── (authenticated)/   # Route Group - Rotas protegidas
+│   │   ├── novo/          # Criação de ticket (multi-step)
+│   │   │   ├── page.tsx
+│   │   │   └── page.module.scss
+│   │   ├── tickets/[id]/  # Detalhes e edição
+│   │   │   ├── editar/    # Edição de ticket
+│   │   │   │   ├── page.tsx
+│   │   │   │   └── page.module.scss
+│   │   │   ├── page.tsx
+│   │   │   └── page.module.scss
+│   │   ├── layout.tsx     # Layout para rotas autenticadas
+│   │   ├── page.tsx       # Listagem de tickets (home)
+│   │   └── page.module.scss
 │   ├── api/               # Route Handlers (Mock API)
+│   │   ├── auth/
+│   │   │   └── login/
+│   │   └── tickets/
+│   │       ├── [id]/
+│   │       ├── mockData.ts
+│   │       └── route.ts
 │   ├── login/             # Página de login
-│   ├── novo/              # Criação de ticket (multi-step)
-│   ├── tickets/[id]/      # Detalhes e edição
-│   ├── layout.tsx         # Layout raiz
-│   └── page.tsx           # Listagem de tickets
+│   │   ├── page.tsx
+│   │   └── page.module.scss
+│   └── layout.tsx         # Layout raiz
 ├── features/
 │   └── tickets/
 │       ├── components/    # Componentes específicos
 │       ├── hooks/         # Hooks customizados
 │       ├── services/      # API communication
+│       │   ├── ticketService.ts
+│       │   └── ticketService.crud.test.ts
 │       ├── store/         # Zustand stores
 │       ├── types/         # TypeScript types
 │       ├── utils/         # Utilitários
@@ -140,6 +161,52 @@ src/
 - Atualização otimista da UI
 - Feedback de sucesso
 
+## 🧪 Testes
+
+### Configuração
+
+- **Framework**: Vitest
+- **Environment**: happy-dom
+- **Testing Library**: @testing-library/react
+- **Coverage**: Integrado com Vitest
+
+### Estrutura de Testes
+
+- Testes unitários para services CRUD (`ticketService.crud.test.ts`)
+- Mocks para fetch API
+- Cobertura de todas as operações CRUD (CREATE, READ, UPDATE, DELETE)
+- Testes de cenários de sucesso e erro
+- 10 testes cobrindo todas as funcionalidades do TicketService
+
+### Scripts de Teste
+
+```bash
+npm test              # Executa testes
+npm run test:watch    # Executa testes em modo watch
+npm run test:coverage # Executa testes com relatório de cobertura
+```
+
+### Exemplo de Teste
+
+```typescript
+// src/features/tickets/services/ticketService.crud.test.ts
+describe('CRUD Functions - TicketService', () => {
+  it('creates a ticket successfully', async () => {
+    const newTicket = {
+      title: 'Test Ticket',
+      description: 'Test description',
+      email: 'test@example.com',
+      priority: 'high' as const,
+      category: 'bug' as const,
+      status: 'open' as const,
+    };
+
+    const result = await TicketService.createTicket(newTicket);
+    expect(result).toBeDefined();
+  });
+});
+```
+
 ## 🎨 Design System
 
 - **SCSS Modules** apenas
@@ -202,12 +269,15 @@ Acesse [http://localhost:3000](http://localhost:3000)
 ### Scripts Disponíveis
 
 ```bash
-npm run dev        # Inicia servidor de desenvolvimento
-npm run build      # Build de produção
-npm run start      # Inicia servidor de produção
-npm run lint       # Executa ESLint
-npm run type-check # Verifica tipos TypeScript
-npm run format     # Formata código com Prettier
+npm run dev           # Inicia servidor de desenvolvimento
+npm run build         # Build de produção
+npm run start         # Inicia servidor de produção
+npm run lint          # Executa ESLint
+npm run type-check    # Verifica tipos TypeScript
+npm run format        # Formata código com Prettier
+npm test              # Executa testes
+npm run test:watch    # Executa testes em modo watch
+npm run test:coverage # Executa testes com relatório de cobertura
 ```
 
 ## 📝 Notas Sobre IA
